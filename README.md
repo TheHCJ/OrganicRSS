@@ -1,16 +1,8 @@
-# organicrss
+<center>
+<img src="organicrss/icon-circle.png" width=128>
+<h1>OrganicRSS</h1>
+</center>
 
-A new Flutter project.
-
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Attributions
+<a target="_blank" href="https://icons8.com/icon/JFtJjqD1jBYW/half-orange">Half Orange</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a>
+<a target="_blank" href="https://icons8.com/icon/16086/rss">RSS</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a>
