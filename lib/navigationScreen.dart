@@ -21,6 +21,7 @@ class navigationScreenState extends State<navigationScreen> {
     return Scaffold(
       body: destinationsScreens[pageId],
       bottomNavigationBar: NavigationBar(
+          selectedIndex: pageId,
           labelBehavior: NavigationDestinationLabelBehavior.onlyShowSelected, 
           destinations: destinations,
           onDestinationSelected: (int newPageId) =>setState(() {pageId = newPageId;}), 
