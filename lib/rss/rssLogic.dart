@@ -1,18 +1,14 @@
-import 'dart:io';
-import 'package:any_date/any_date.dart';
 import 'package:organicrss/rss/rssClasses.dart';
+import 'package:organicrss/utils/constants.dart';
 import 'package:xml/xml.dart';
-import 'package:flutter_cache_manager/flutter_cache_manager.dart';
 import 'package:timeago/timeago.dart' as timeago;
 
 class parseRSS {
   final String? feedUri;
-  final cacheManager = DefaultCacheManager();
-  final anyDate = const AnyDate();
   List<rssItem>? _cachedSortedFeed;
 
   parseRSS({this.feedUri});
-
+ 
   Future<String> fetch() async {
     final download = await cacheManager.getSingleFile(feedUri!);
     return await download.readAsString();
