@@ -26,8 +26,6 @@ class parseRSS {
     final items = parseResponse.findAllElements("item");
     final returnItems = [];
 
-    print(items);
-
     for (final item in items) {
       final title = item.findElements('title').first.innerText;
       final description = item.findElements('description').first.innerText;
