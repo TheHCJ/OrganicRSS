@@ -1,0 +1,4 @@
+https://feeds.bbci.co.uk/news/rss.xml -- rss 2.0
+
+https://feeds.skynews.com/feeds/rss/home.xml -- atom feed
+https://www.theverge.com/rss/index.xml -- atom feed
