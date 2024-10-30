@@ -29,8 +29,9 @@ class parseRSS {
     for (final item in items) {
       final title = item.findElements('title').first.innerText;
       final description = item.findElements('description').first.innerText;
+      final uri = item.findElements('link').first.innerText;
 
-      returnItems.add(rssItem(title: title, description: description));
+      returnItems.add(rssItem(title: title, description: description, uri: uri));
     }
 
     return returnItems;
