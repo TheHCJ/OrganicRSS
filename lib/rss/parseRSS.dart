@@ -20,16 +20,20 @@ class parseRSS {
   }
 
   parse() async {
-    final response = fetch();
+    final response = await fetch();
     final parseResponse = XmlDocument.parse(response);
 
     final items = parseResponse.findAllElements("item");
     final returnItems = [];
 
+    print(items);
+
     for (final item in items) {
       final title = item.findElements('title').first.innerText;
       final description = item.findElements('description').first.innerText;
       final uri = item.findElements('link').first.innerText;
+
+      print(title);
 
       returnItems.add(rssItem(title: title, description: description, uri: uri));
     }
