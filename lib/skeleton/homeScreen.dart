@@ -24,7 +24,17 @@ class homeScreenState extends State<homeScreen> {
             {
             return ListView.builder(itemBuilder: (BuildContext context, int i) {
               final rssItem item = items[i];
-              return ListTile(title: Text(item.title), subtitle: Text(item.description), onTap: () => launchUrlString(item.uri),);
+              return ListTile(
+                title: Text(item.title), 
+                subtitle: Column(mainAxisAlignment: MainAxisAlignment.start, crossAxisAlignment: CrossAxisAlignment.start, children: [
+                  Text(item.description), 
+                  Container(
+                    decoration: BoxDecoration(borderRadius: BorderRadius.circular(12.0), color: Theme.of(context).highlightColor), 
+                    child: Row(children: [const Icon(Icons.timer), Padding(padding: EdgeInsetsDirectional.only(start: 6.0), child: Text(item.relativeTime))]
+                  ))
+                  ],), 
+                onTap: () => launchUrlString(item.uri),
+              );
             });
           } else {
             return const LinearProgressIndicator();

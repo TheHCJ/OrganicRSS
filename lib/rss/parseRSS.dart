@@ -1,9 +1,10 @@
 import 'dart:io';
 
+import 'package:any_date/any_date.dart';
 import 'package:organicrss/rss/rssClasses.dart';
 import 'package:xml/xml.dart';
 import 'package:flutter_cache_manager/flutter_cache_manager.dart';
-import 'package:http/http.dart' as http;
+import 'package:timeago/timeago.dart' as timeago;
 
 class parseRSS {
   final String feedUri;
@@ -11,6 +12,7 @@ class parseRSS {
   parseRSS({required this.feedUri});
 
   final cacheManager = DefaultCacheManager();
+  final anyDate = AnyDate();
 
   fetch() async {
     final download = await cacheManager.getSingleFile(feedUri);
@@ -31,7 +33,11 @@ class parseRSS {
       final description = item.findElements('description').first.innerText;
       final uri = item.findElements('link').first.innerText;
 
-      returnItems.add(rssItem(title: title, description: description, uri: uri));
+      final date = item.findElements('pubDate').first.innerText;
+      final parsedDate = anyDate.parse(date);
+      final relativeTime = timeago.format(parsedDate);
+
+      returnItems.add(rssItem(title: title, description: description, relativeTime: relativeTime, date: parsedDate, uri: uri));
     }
 
     return returnItems;
