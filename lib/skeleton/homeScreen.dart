@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'package:organicrss/rss/parseRSS.dart';
+import 'package:organicrss/rss/rssLogic.dart';
 import 'package:organicrss/rss/rssClasses.dart';
 
 import 'package:url_launcher/url_launcher_string.dart';
@@ -15,7 +15,7 @@ class homeScreenState extends State<homeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(title: const Text("Home"),),
-        body: FutureBuilder(future: parseRSS(feedUri: feedUri).parse(), builder: (BuildContext context, AsyncSnapshot snapshot) {
+        body: FutureBuilder(future: parseRSS(feedUri: feedUri).getFeed(), builder: (BuildContext context, AsyncSnapshot snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
             return const LinearProgressIndicator();
           } else {
