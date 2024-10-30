@@ -19,10 +19,8 @@ class homeScreenState extends State<homeScreen> {
           if (snapshot.connectionState == ConnectionState.waiting) {
             return const LinearProgressIndicator();
           } else {
-            final items = snapshot.data;
-            if (items != null)
-            {
-            return ListView.builder(itemBuilder: (BuildContext context, int i) {
+            final List items = snapshot.data;
+            return ListView.builder(itemCount: items.length, itemBuilder: (BuildContext context, int i) {
               final rssItem item = items[i];
               return ListTile(
                 title: Text(item.title), 
@@ -36,9 +34,6 @@ class homeScreenState extends State<homeScreen> {
                 onTap: () => launchUrlString(item.uri),
               );
             });
-          } else {
-            return const LinearProgressIndicator();
-          }
           }
         })
       );
