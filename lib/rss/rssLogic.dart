@@ -6,15 +6,15 @@ import 'package:flutter_cache_manager/flutter_cache_manager.dart';
 import 'package:timeago/timeago.dart' as timeago;
 
 class parseRSS {
-  final String feedUri;
+  final String? feedUri;
   final cacheManager = DefaultCacheManager();
   final anyDate = const AnyDate();
   List<rssItem>? _cachedSortedFeed;
 
-  parseRSS({required this.feedUri});
+  parseRSS({this.feedUri});
 
   Future<String> fetch() async {
-    final download = await cacheManager.getSingleFile(feedUri);
+    final download = await cacheManager.getSingleFile(feedUri!);
     return await download.readAsString();
   }
 
